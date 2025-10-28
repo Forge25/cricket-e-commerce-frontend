@@ -1,103 +1,132 @@
+"use client";
+import { useState } from "react";
+import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { Filter, Star, Home, ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function Home() {
+const banners = [
+  "/banner.jpg",
+  "/banner.jpg",
+  "/banner.jpg",
+];
+
+export default function AllBatsPage() {
+  const bats = [
+    { id: 1, name: "SS TON Smacker Elite 2024", price: 199.99, img: "/bat1.jpg" },
+    { id: 2, name: "Kookaburra Kahuna 2024", price: 179.99, img: "/bat2.jpg" },
+    { id: 3, name: "MRF Genius Grand 2024", price: 189.99, img: "/bat3.jpg" },
+    { id: 4, name: "Gray-Nicolls Legend 2024", price: 209.99, img: "/bat4.jpg" },
+  ];
+
+  const [current, setCurrent] = useState(0);
+
+  const prevSlide = () => setCurrent(prev => (prev === 0 ? banners.length - 1 : prev - 1));
+  const nextSlide = () => setCurrent(prev => (prev === banners.length - 1 ? 0 : prev + 1));
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-white">
+          <main className="bg-white max-w-9xl mx-auto px-4 pt-6 min-h-screen">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {/* Banner Section */}
+            <section className="relative overflow-hidden rounded-2xl h-[400px] mb-10">
+              {/* Slide container */}
+              <div
+                  className="flex transition-transform duration-500 h-full"
+                  style={{ transform: `translateX(-${current * 100}%)` }}
+              >
+                {banners.map((banner, index) => (
+                    <div
+                        key={index}
+                        className="min-w-full h-full bg-cover bg-center relative"
+                        style={{ backgroundImage: `url('${banner}')` }}
+                    />
+                ))}
+              </div>
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/10 rounded-2xl" />
+
+              {/* Headings on left-middle */}
+              <div className="absolute top-1/2 left-4 md:left-6 transform -translate-y-1/2 flex flex-col space-y-2">
+                <h1 className="text-4xl md:text-5xl font-bold text-white">Get Your Gun</h1>
+                <h2 className="text-xl font-extralight md:text-2xl text-white">Crafted for Players who</h2>
+                <h2 className="text-xl md:text-2xl text-white">thrive on timing and precision</h2>
+              </div>
+
+              {/* Shop Now button on right-middle */}
+              <button className="absolute top-1/2 right-4 h-12 md:right-6 transform -translate-y-1/2 px-6 py-2 rounded-3xl font-extralight text-white border border-white bg-transparent hover:bg-red-600 hover:border-red-600 transition">
+                Shop Now
+              </button>
+
+              {/* Bottom Arrows */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-120">
+                {/* Left Arrow */}
+                <button
+                    onClick={() => setCurrent(current === 0 ? banners.length - 1 : current - 1)}
+                    className="hover:bg-white p-2 rounded-full transition"
+                >
+                  <ChevronLeft className="w-6 h-6 text-white" />
+                </button>
+                {/* Right Arrow */}
+                <button
+                    onClick={() => setCurrent(current === banners.length - 1 ? 0 : current + 1)}
+                    className="hover:bg-white p-2 rounded-full transition"
+                >
+                  <ChevronRight className="w-6 h-6 text-white" />
+                </button>
+              </div>
+            </section>
+
+            {/* Breadcrumb */}
+            <p className="text-sm text-black mb-2 flex items-center gap-1">
+              <a href="/" className="flex items-center gap-1 hover:underline text-black font-medium">
+                <Home className="w-4 h-4" />
+              </a>
+              <span>/</span>
+              Collections
+              <span>/</span>
+              All Cricket Bats
+            </p>
+            <h2 className="text-black text-3xl font-bold mb-6">All Cricket Bats</h2>
+
+            {/* Filter & Sort Buttons */}
+            <div className="flex justify-between items-center mb-8">
+              <button className="flex items-center gap-2 bg-red-500  text-white px-4 py-2 rounded-3xl">
+                <Filter className="w-4 h-4" /> Filters
+              </button>
+              <button className="flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-3xl">
+                <Star className="w-4 h-4" /> Featured
+              </button>
+            </div>
+
+            {/* Product Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+              {bats.map((bat) => (
+                  <div
+                      key={bat.id}
+                      className="border rounded-2xl p-4 hover:shadow-lg transition-all bg-white"
+                  >
+                    <Image
+                        src={bat.img}
+                        alt={bat.name}
+                        width={300}
+                        height={400}
+                        className="rounded-lg object-contain mx-auto"
+                    />
+                    <h3 className="text-lg font-semibold mt-3">{bat.name}</h3>
+                    <div className="flex items-center justify-between mt-1">
+                      <p className="text-red-600 font-bold">${bat.price.toFixed(2)}</p>
+                      <button className="p-2 rounded-full hover:bg-red-100 transition">
+                        <ShoppingCart className="w-5 h-5 text-red-600" />
+                      </button>
+                    </div>
+                  </div>
+              ))}
+            </div>
+          </main>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </>
   );
 }
