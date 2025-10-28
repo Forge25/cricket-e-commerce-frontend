@@ -81,9 +81,9 @@ export default function AllBatsPage() {
 
             {/* Breadcrumb */}
             <p className="text-sm text-black mb-2 flex items-center gap-1">
-              <link href="/" className="flex items-center gap-1 hover:underline text-black font-medium">
+              <a href="/" className="flex items-center gap-1 hover:underline text-black font-medium">
                 <Home className="w-4 h-4" />
-              </link>
+              </a>
               <span>/</span>
               Collections
               <span>/</span>
