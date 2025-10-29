@@ -87,7 +87,7 @@ const Footer = () => {
               {/* Left section */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 ">
                 <div>
-                  <h3 className="text-gray-400 text-lg font-medium mb-4">
+                  <h3 className="text-gray-400 text-lg font-semibold mb-3">
                     Information
                   </h3>
                   <ul className="space-y-2 mb-12 ">
@@ -117,7 +117,7 @@ const Footer = () => {
                     </li>
                   </ul>
 
-                  <h3 className="text-gray-400 text-lg font-medium mb-4">
+                  <h3 className="text-gray-400 text-lg font-semibold mb-3">
                     Quick Links
                   </h3>
                   <ul className="space-y-2">
@@ -163,7 +163,7 @@ const Footer = () => {
                     </li>
                   </ul>
 
-                  <h3 className="text-gray-400 text-lg font-medium mb-4 mt-12">
+                  <h3 className="text-gray-400 text-lg font-semibold mb-4 mt-12">
                     Get In touch
                   </h3>
                   <ul className="space-y-2">
@@ -191,7 +191,7 @@ const Footer = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-gray-400 text-lg font-medium mb-4">
+                  <h3 className="text-gray-400 text-lg font-semibold mb-3">
                     Policies
                   </h3>
                   <ul className="space-y-2 mb-12">
@@ -221,8 +221,8 @@ const Footer = () => {
                     </li>
                   </ul>
 
-                  <div className="mt-5">
-                    <h3 className="text-gray-400 text-lg font-medium mb-4">
+                  <div>
+                    <h3 className="text-gray-400 text-lg font-semibold mb-3">
                       Top Brands
                     </h3>
                     <ul className="space-y-2">
