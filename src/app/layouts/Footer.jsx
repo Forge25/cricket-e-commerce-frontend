@@ -41,14 +41,12 @@ const Footer = () => {
 
   return (
     <>
-      <div className="bg-grid-bg rounded-t-2xl md:rounded-t-4xl overflow-hidden">
-        <div className="bg-neutral-900 text-gray-300 py-6 md:py-8 px-4 md:px-6 lg:px-8 rounded-2xl md:rounded-4xl mb-6 md:mb-8">
+      <div className="bg-black rounded-t-2xl md:rounded-t-4xl overflow-hidden">
+        <div className="bg-neutral-900 text-gray-300 pt-4 md:pt-6 px-6 md:px-12 rounded-2xl md:rounded-4xl mb-0">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 relative mt-6 md:mt-8">
-              {/*  line */}
               <div className="hidden lg:block absolute left-1/2 top-40 bottom-0 w-px bg-neutral-700 transform -translate-x-1/2"></div>
 
-              {/* Rotating circle  */}
               <div className="hidden lg:flex absolute left-1/2 top-16 transform -translate-x-1/2 -translate-y-1/2 items-center justify-center w-32 h-32 z-10">
                 <div className="relative w-full h-full">
                   <svg
@@ -74,7 +72,6 @@ const Footer = () => {
                     </text>
                   </svg>
 
-                  {/* Lucide Arrow Icon */}
                   <div className="absolute inset-0 flex items-center justify-center bg-neutral-900 rounded-full w-16 h-16 m-auto rotate-240">
                     <ArrowDown
                       className="w-12 h-10 text-white"
@@ -84,10 +81,9 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Left section */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <div>
-                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3">
+                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
                     Information
                   </h3>
                   <ul className="space-y-2 mb-8 md:mb-12">
@@ -117,10 +113,10 @@ const Footer = () => {
                     </li>
                   </ul>
 
-                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3">
+                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
                     Quick Links
                   </h3>
-                  <ul className="space-y-2 mb-8 md:mb-0">
+                  <ul className="space-y-2 mb-8 md:mb-12">
                     <li>
                       <a
                         href="#"
@@ -163,10 +159,10 @@ const Footer = () => {
                     </li>
                   </ul>
 
-                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4 mt-8 md:mt-12">
+                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
                     Get In touch
                   </h3>
-                  <ul className="space-y-2 mb-8 md:mb-0">
+                  <ul className="space-y-2 mb-8 md:mb-12">
                     <li>
                       <a
                         href="#"
@@ -184,16 +180,10 @@ const Footer = () => {
                       </a>
                     </li>
                   </ul>
-
-                  <div className="pt-6 md:pt-8 mt-2 md:mt-3">
-                    <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold">
-                      bats.lk*
-                    </h1>
-                  </div>
                 </div>
 
                 <div>
-                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3">
+                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
                     Policies
                   </h3>
                   <ul className="space-y-2 mb-8 md:mb-12">
@@ -224,7 +214,7 @@ const Footer = () => {
                   </ul>
 
                   <div>
-                    <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3">
+                    <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
                       Top Brands
                     </h3>
                     <ul className="space-y-2">
@@ -273,16 +263,15 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Right Contact Form */}
-              <div className="w-full lg:w-100 lg:ml-50">
-                <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+              <div className="lg:pl-12 w-full lg:w-120 lg:ml-33">
+                <h2 className="text-white text-2xl md:text-4xl font-bold mb-2">
                   Find your answers?
                 </h2>
-                <p className="text-gray-400 text-base md:text-lg mb-6 md:mb-15">
+                <p className="text-gray-400 text-base md:text-lg mb-8 md:mb-10">
                   Don't hesitate to contact us
                 </p>
 
-                <div className="space-y-6 md:space-y-8">
+                <div className="space-y-6 md:space-y-8 max-w-full lg:max-w-xl">
                   <input
                     type="text"
                     name="name"
@@ -307,18 +296,28 @@ const Footer = () => {
                     onChange={handleChange}
                     className="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 md:px-6 py-3 md:py-4 text-white placeholder-gray-500 focus:outline-none focus:border-neutral-600 resize-none text-sm md:text-base"
                   />
-                  <div className="flex justify-end">
+                  <div className="flex justify-end relative top-2 md:top-4">
                     <button
                       type="button"
                       onClick={handleSubmit}
-                      className="bg-red-600 hover:bg-red-700 text-white font-medium px-8 md:px-10 py-3 md:py-4 rounded-full transition-colors text-sm md:text-base"
+                      className="bg-red-600 hover:bg-red-700 text-white font-medium px-8 md:px-10 py-3 md:py-4 rounded-full transition-colors text-sm md:text-base whitespace-nowrap"
                     >
                       send message
                     </button>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                <div className="flex gap-3 md:gap-4 mt-6 md:mt-0 lg:relative lg:right-45 lg:bottom-6">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 relative bottom-0 lg:bottom-8 mt-8 lg:mt-0">
+              <div>
+                <h1 className="text-white text-4xl md:text-6xl font-bold">
+                  bats.lk*
+                </h1>
+              </div>
+
+              <div className="flex flex-row items-center gap-6 md:gap-8 w-auto lg:relative lg:right-100">
+                <div className="flex gap-3 md:gap-4">
                   <a
                     href="#"
                     className="text-gray-400 hover:text-white transition-colors"
@@ -348,12 +347,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 md:gap-4 px-4 md:px-6 lg:px-8 mb-6 md:mb-7">
+
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 md:gap-4 px-6 md:px-12 my-4">
           <p className="text-gray-400 hover:text-white transition-colors font-light text-sm md:text-base">
             Left Corner Text
           </p>
 
-          <div className="flex flex-wrap gap-3 md:gap-4 lg:gap-6 text-xs md:text-sm lg:text-base">
+          <div className="flex flex-wrap gap-4 md:gap-6 text-xs md:text-base">
             <p className="text-gray-400 hover:text-white transition-colors font-light">
               @2025 sharkcrick
             </p>
