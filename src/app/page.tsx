@@ -1,10 +1,9 @@
-// import Footer from "../app/layouts/Footer";
-import Test from "../app/Test.jsx";
+import Footer from "../app/layouts/Footer";
+
 export default function Home() {
   return (
     <>
-      {/* <Footer /> */}
-      <Test />
+      <Footer />
     </>
   );
 }

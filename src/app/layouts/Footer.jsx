@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowDown, Facebook, Instagram, Youtube } from "lucide-react";
+import {
+  ArrowDown,
+  Facebook,
+  Instagram,
+  Youtube,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 
 const TikTokIcon = () => (
   <svg
@@ -25,6 +32,21 @@ const Footer = () => {
     message: "",
   });
 
+  const [openSections, setOpenSections] = useState({
+    information: true,
+    quickLinks: false,
+    getInTouch: false,
+    policies: false,
+    topBrands: false,
+  });
+
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -44,7 +66,7 @@ const Footer = () => {
       <div className="bg-black rounded-t-2xl md:rounded-t-4xl overflow-hidden">
         <div className="bg-neutral-900 text-gray-300 pt-4 md:pt-6 px-6 md:px-12 rounded-2xl md:rounded-4xl mb-0">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 relative mt-6 md:mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative mt-6 md:mt-8">
               <div className="hidden lg:block absolute left-1/2 top-40 bottom-0 w-px bg-neutral-700 transform -translate-x-1/2"></div>
 
               <div className="hidden lg:flex absolute left-1/2 top-16 transform -translate-x-1/2 -translate-y-1/2 items-center justify-center w-32 h-32 z-10">
@@ -81,147 +103,245 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-0 md:gap-x-8 lg:gap-12">
                 <div>
-                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
-                    Information
-                  </h3>
-                  <ul className="space-y-2 mb-8 md:mb-12">
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        About Us
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Help
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Contact Us
-                      </a>
-                    </li>
-                  </ul>
-
-                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
-                    Quick Links
-                  </h3>
-                  <ul className="space-y-2 mb-8 md:mb-12">
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Bat Collections
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Protective
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Balls & Accessories
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Clothing
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Juniors
-                      </a>
-                    </li>
-                  </ul>
-
-                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
-                    Get In touch
-                  </h3>
-                  <ul className="space-y-2 mb-8 md:mb-12">
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        011 763 33433
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        batslk@gmail.com
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
-                    Policies
-                  </h3>
-                  <ul className="space-y-2 mb-8 md:mb-12">
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Delivery and Returns
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Privacy Policy
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors text-sm md:text-base"
-                      >
-                        Terms & Conditions
-                      </a>
-                    </li>
-                  </ul>
-
-                  <div>
-                    <h3 className="text-gray-400 text-base md:text-lg font-semibold mb-3 md:mb-4">
-                      Top Brands
-                    </h3>
-                    <ul className="space-y-2">
+                  <div className="border-b border-neutral-700 md:border-none">
+                    <button
+                      onClick={() => toggleSection("information")}
+                      className="flex justify-between items-center w-full text-left py-3 md:py-0 md:pointer-events-none"
+                    >
+                      <h3 className="text-white md:text-gray-400 text-base md:text-lg font-semibold md:mb-3 lg:mb-4">
+                        Information
+                      </h3>
+                      <span className="md:hidden">
+                        {openSections.information ? (
+                          <ChevronUp className="w-5 h-5 text-white" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-white" />
+                        )}
+                      </span>
+                    </button>
+                    <ul
+                      className={`space-y-1 mb-0 md:mb-8 lg:mb-12 overflow-hidden transition-all duration-300 ${
+                        openSections.information
+                          ? "max-h-96 opacity-100 mb-3 md:mb-8 lg:mb-12"
+                          : "max-h-0 opacity-0 md:max-h-96 md:opacity-100 md:mb-8 lg:mb-12"
+                      }`}
+                    >
                       <li>
                         <a
                           href="#"
-                          className="hover:text-white transition-colors text-sm md:text-base"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          About Us
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Help
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Contact Us
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-b border-neutral-700 md:border-none">
+                    <button
+                      onClick={() => toggleSection("quickLinks")}
+                      className="flex justify-between items-center w-full text-left py-3 md:py-0 md:pointer-events-none"
+                    >
+                      <h3 className="text-white md:text-gray-400 text-base md:text-lg font-semibold md:mb-3 lg:mb-4">
+                        Quick Links
+                      </h3>
+                      <span className="md:hidden">
+                        {openSections.quickLinks ? (
+                          <ChevronUp className="w-5 h-5 text-white" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-white" />
+                        )}
+                      </span>
+                    </button>
+                    <ul
+                      className={`space-y-1 mb-0 md:mb-8 lg:mb-12 overflow-hidden transition-all duration-300 ${
+                        openSections.quickLinks
+                          ? "max-h-96 opacity-100 mb-3 md:mb-8 lg:mb-12"
+                          : "max-h-0 opacity-0 md:max-h-96 md:opacity-100 md:mb-8 lg:mb-12"
+                      }`}
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Bat Collections
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Protective
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Balls & Accessories
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Clothing
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Juniors
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-b border-neutral-700 md:border-none">
+                    <button
+                      onClick={() => toggleSection("getInTouch")}
+                      className="flex justify-between items-center w-full text-left py-3 md:py-0 md:pointer-events-none"
+                    >
+                      <h3 className="text-white md:text-gray-400 text-base md:text-lg font-semibold md:mb-3 lg:mb-4">
+                        Get In touch
+                      </h3>
+                      <span className="md:hidden">
+                        {openSections.getInTouch ? (
+                          <ChevronUp className="w-5 h-5 text-white" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-white" />
+                        )}
+                      </span>
+                    </button>
+                    <ul
+                      className={`space-y-1 mb-0 md:mb-8 lg:mb-12 overflow-hidden transition-all duration-300 ${
+                        openSections.getInTouch
+                          ? "max-h-96 opacity-100 mb-3 md:mb-8 lg:mb-12"
+                          : "max-h-0 opacity-0 md:max-h-96 md:opacity-100 md:mb-8 lg:mb-12"
+                      }`}
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          011 763 33433
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          batslk@gmail.com
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="border-b border-neutral-700 md:border-none">
+                    <button
+                      onClick={() => toggleSection("policies")}
+                      className="flex justify-between items-center w-full text-left py-3 md:py-0 md:pointer-events-none"
+                    >
+                      <h3 className="text-white md:text-gray-400 text-base md:text-lg font-semibold md:mb-3 lg:mb-4">
+                        Policies
+                      </h3>
+                      <span className="md:hidden">
+                        {openSections.policies ? (
+                          <ChevronUp className="w-5 h-5 text-white" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-white" />
+                        )}
+                      </span>
+                    </button>
+                    <ul
+                      className={`space-y-1 mb-0 md:mb-8 lg:mb-12 overflow-hidden transition-all duration-300 ${
+                        openSections.policies
+                          ? "max-h-96 opacity-100 mb-3 md:mb-8 lg:mb-12"
+                          : "max-h-0 opacity-0 md:max-h-96 md:opacity-100 md:mb-8 lg:mb-12"
+                      }`}
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Delivery and Returns
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Privacy Policy
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
+                        >
+                          Terms & Conditions
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-b border-neutral-700 md:border-none">
+                    <button
+                      onClick={() => toggleSection("topBrands")}
+                      className="flex justify-between items-center w-full text-left py-3 md:py-0 md:pointer-events-none"
+                    >
+                      <h3 className="text-white md:text-gray-400 text-base md:text-lg font-semibold md:mb-3 lg:mb-4">
+                        Top Brands
+                      </h3>
+                      <span className="md:hidden">
+                        {openSections.topBrands ? (
+                          <ChevronUp className="w-5 h-5 text-white" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-white" />
+                        )}
+                      </span>
+                    </button>
+                    <ul
+                      className={`space-y-1 mb-0 overflow-hidden transition-all duration-300 ${
+                        openSections.topBrands
+                          ? "max-h-96 opacity-100 mb-3"
+                          : "max-h-0 opacity-0 md:max-h-96 md:opacity-100"
+                      }`}
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
                         >
                           Gray-Nicolls
                         </a>
@@ -229,7 +349,7 @@ const Footer = () => {
                       <li>
                         <a
                           href="#"
-                          className="hover:text-white transition-colors text-sm md:text-base"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
                         >
                           SS
                         </a>
@@ -237,7 +357,7 @@ const Footer = () => {
                       <li>
                         <a
                           href="#"
-                          className="hover:text-white transition-colors text-sm md:text-base"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
                         >
                           SG
                         </a>
@@ -245,7 +365,7 @@ const Footer = () => {
                       <li>
                         <a
                           href="#"
-                          className="hover:text-white transition-colors text-sm md:text-base"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
                         >
                           TON
                         </a>
@@ -253,7 +373,7 @@ const Footer = () => {
                       <li>
                         <a
                           href="#"
-                          className="hover:text-white transition-colors text-sm md:text-base"
+                          className="hover:text-white transition-colors text-sm md:text-base block py-1"
                         >
                           Mids
                         </a>
@@ -263,15 +383,15 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="lg:pl-12 w-full lg:w-120 lg:ml-33">
+              <div className="lg:pl-12 w-full lg:w-120 lg:ml-33 mt-8 lg:mt-0">
                 <h2 className="text-white text-2xl md:text-4xl font-bold mb-2">
                   Find your answers?
                 </h2>
-                <p className="text-gray-400 text-base md:text-lg mb-8 md:mb-10">
+                <p className="text-gray-400 text-base md:text-lg mb-6 md:mb-8 lg:mb-10">
                   Don't hesitate to contact us
                 </p>
 
-                <div className="space-y-6 md:space-y-8 max-w-full lg:max-w-xl">
+                <div className="space-y-4 md:space-y-6 lg:space-y-8 max-w-full lg:max-w-xl">
                   <input
                     type="text"
                     name="name"
@@ -296,11 +416,11 @@ const Footer = () => {
                     onChange={handleChange}
                     className="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 md:px-6 py-3 md:py-4 text-white placeholder-gray-500 focus:outline-none focus:border-neutral-600 resize-none text-sm md:text-base"
                   />
-                  <div className="flex justify-end relative top-2 md:top-4">
+                  <div className="flex justify-end relative top-2 md:top-3 lg:top-4">
                     <button
                       type="button"
                       onClick={handleSubmit}
-                      className="bg-red-600 hover:bg-red-700 text-white font-medium px-8 md:px-10 py-3 md:py-4 rounded-full transition-colors text-sm md:text-base whitespace-nowrap"
+                      className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 md:px-8 md:py-3 lg:px-10 lg:py-4 rounded-full transition-colors text-sm md:text-base whitespace-nowrap"
                     >
                       send message
                     </button>
