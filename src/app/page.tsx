@@ -1,3 +1,7 @@
+
+export default function Home() {
+  return <></>;
+=======
 "use client";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
