@@ -1,9 +1,9 @@
-import Verify from "./auth/verify/page";
+import Rest from "./auth/rest/page";
 
 export default function Home() {
   return (
     <>
-      <Verify />
+      <Rest />
     </>
   );
 }
