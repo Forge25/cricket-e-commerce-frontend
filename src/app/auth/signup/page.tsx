@@ -9,9 +9,10 @@ export default function SignUp() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <header className="flex justify-between items-center px-22 py-6">
-        <h1 className="text-2xl font-bold text-gray-900">Bat.lk</h1>
-        <button className="w-7 h-7 rounded-full bg-red-600 flex items-center justify-center text-white">
+      {/* Header */}
+      <header className="flex justify-between items-center px-4 sm:px-8 md:px-16 lg:px-22 py-4 sm:py-6">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Bat.lk</h1>
+        <button className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-red-600 flex items-center justify-center text-white">
           <svg
             className="w-4.5 h-4"
             fill="none"
@@ -28,16 +29,20 @@ export default function SignUp() {
         </button>
       </header>
 
-      <main className="flex-1 flex flex-col items-center justify-center px-4 mb-18">
-        <div className="w-full max-w-md px-4">
-          <div className="mb-12">
-            <h2 className="text-4xl font-medium text-gray-900 mb-1">Sign Up</h2>
-            <p className="text-gray-600 text-lg">
+      {/* Main Content */}
+      <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 mb-8 sm:mb-12 md:mb-18">
+        <div className="w-full max-w-md px-2 sm:px-4">
+          <div className="mb-8 sm:mb-10 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-medium text-gray-900 mb-1">
+              Sign Up
+            </h2>
+            <p className="text-gray-600 text-base sm:text-lg">
               Create a password for your account.
             </p>
           </div>
 
-          <div className="space-y-6">
+          {/* Form */}
+          <div className="space-y-4 sm:space-y-6">
             <div className="relative">
               <input
                 type="email"
@@ -120,9 +125,13 @@ export default function SignUp() {
             </button>
           </div>
 
-          <p className="text-left text-gray-600 text-sm mt-2">
+          <button
+            type="button"
+            onClick={() => console.log("Navigate to login page")}
+            className="text-left text-gray-600 text-sm mt-2 hover:text-red-600 transition-colors duration-200 underline decoration-transparent hover:decoration-red-600 underline-offset-2"
+          >
             allready have an account
-          </p>
+          </button>
         </div>
       </main>
     </div>
