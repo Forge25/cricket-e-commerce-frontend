@@ -127,7 +127,7 @@ export default function SignUp() {
 
           <button
             type="button"
-            onClick={() => console.log("Navigate to login page")}
+            onClick={() => console.log("")}
             className="text-left text-gray-600 text-sm mt-2 hover:text-red-600 transition-colors duration-200 underline decoration-transparent hover:decoration-red-600 underline-offset-2"
           >
             allready have an account
